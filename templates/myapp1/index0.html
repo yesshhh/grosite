@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <title>Online Grocery Store</title>
 </head>
-<body>
+</html>
+
+{% extends 'myapp1/base.html' %}
+{% block body_block %}
+   <body>
 {% if type_list %}
     <h2>List of Types</h2>
     <ol>
@@ -17,4 +21,6 @@
 {% endif %}
 <p><a href="{% url 'myapp1:about' %}">About Page</a></p>
 </body>
-</html>
+{% endblock %}
+
+

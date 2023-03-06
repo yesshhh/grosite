@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Online Grocery Store</title>
+</head>
+</html>
+
+{% extends 'myapp1/base.html' %}
+{% block body_block %}
+   <body>
+
+  <h1>Place Your Order</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ orderitem_form.as_p }}
+    {{ interest_form.as_p }}
+    <button type="submit">Submit</button>
+  </form>
+</body>
+{% endblock %}
+
+

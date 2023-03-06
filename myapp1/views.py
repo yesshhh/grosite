@@ -15,9 +15,16 @@ def about(request):
     return render(request, 'myapp1/about0.html')
 
 def detail(request, type_no):
-    type = get_object_or_404(Type, id=type_no)
-    items=type.objects.filter(type=type)
-    return render(request, 'myapp1/detail0.html', {'type': type, 'item_list':items })
+    typeReq = get_object_or_404(Type, pk=type_no)
+    items = Item.objects.filter(type=typeReq)
+    return render(request, 'myapp1/detail0.html', {'type': typeReq, 'item_list': items})
+
+def items(request):
+    itemlist = Item.objects.all().order_by('id')[:20]
+    return render(request, 'myapp1/items.html', {'itemlist': itemlist})
+
+def placeorder(request):
+    return render(request, 'myapp1/placeorder.html')
 
 
 
